@@ -1,0 +1,14 @@
+COTILLÓN 26/27 · TOP EVENTOS
+
+1. Descomprime el ZIP.
+2. En GitHub, abre el repositorio de tu web.
+3. Pulsa Add file > Upload files.
+4. Arrastra index.html y top-eventos.png juntos a la página principal del repositorio (sin meterlos en carpetas).
+5. Pulsa Commit changes y espera a que termine la actualización de GitHub Pages.
+6. Abre tu enlace habitual. Si aún ves la versión anterior, recarga o añade ?v=sobre-26-27 al final del enlace.
+
+El sobre se abre al pulsarlo y muestra una entrada cuadrada con los datos facilitados.
+Puedes cerrarlo y abrirlo otra vez. No necesita instalación ni servicios externos.
+
+Este paquete muestra la nueva experiencia del sobre y la entrada en lugar de la pantalla anterior.
+Los archivos anteriores de fotos, vídeos y audio no se utilizan en esta versión. Puedes conservarlos en el repositorio.
