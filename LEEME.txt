@@ -1,27 +1,32 @@
-COTILLÓN 26/27 · TOP EVENTOS · ENTRADA CON INFORMACIÓN
+COTILLÓN 26/27 · TOP EVENTOS · APERTURA CINEMATOGRÁFICA
 
 Actualiza únicamente el repositorio ENTRADA-COTILL-N-26-27.
 
 1. Descomprime este ZIP.
 2. Abre ENTRADA-COTILL-N-26-27 en GitHub.
 3. Pulsa Add file > Upload files.
-4. Arrastra index.html, top-eventos.png, sello-cera.webp y papel-negro.webp sueltos, sin carpetas.
+4. Arrastra estos cinco archivos sueltos, sin carpetas:
+   index.html
+   top-eventos.png
+   sello-cera.webp
+   papel-negro.webp
+   apertura-sobre.mp3
 5. Pulsa Commit changes y espera a que termine la actualización de GitHub Pages.
-6. Abre tu enlace:
-   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=entrada-info-3
+6. Abre:
+   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=cine-4
 
-Si ya has subido la versión con el sello de cera y el papel realista, basta con sustituir index.html.
+Si ya tienes la versión de la entrada con toda la información, solo necesitas actualizar index.html y añadir apertura-sobre.mp3.
 
-Información incorporada del cartel:
-- Cotillón Fin de Año 26/27. 31 diciembre 2026, 1:00 h.
-- Salón Benalúcar. C/ Blasco de Garay, 65. Sanlúcar la Mayor.
-- 1 consumición gratuita; más de 7 horas de música; chupito de bienvenida;
-  bolsa de cotillón; canapés; servicio de guardarropa; sorteos y muchas sorpresas.
-- 30 EUR hasta el 23/12/2026 y 40 EUR desde el 24/12/2026.
-  Fechas actualizadas a 2026, manteniendo los precios, según confirmación del usuario.
-- Próximamente, entradas a la venta.
-- Evento recomendado para mayores de 21 años.
-- Prohibida la entrada a menores de 18 años.
-- La organización se reserva el derecho de admisión.
+Efectos incluidos:
+- Luz cálida sobre el papel y brillo suave en el sello.
+- Movimiento leve y profundidad del sobre.
+- El sello se levanta antes de abrirse la solapa.
+- Sonido original de cera y papel, que comienza al pulsar el sobre.
+- Partículas doradas al salir la entrada.
+- Destello que recorre la entrada.
+- La secuencia termina en unos cuatro segundos y deja la entrada quieta para leerla.
+- Puedes cerrar el sobre y repetir la apertura.
 
-Se conserva el sobre negro realista, el sello de cera dorada y la entrada cuadrada blanca con detalles dorados.
+La entrada conserva el diseño, la información y los precios aprobados.
+No hay reproductor visible. El sonido es un efecto breve y no se reproduce en bucle.
+La versión simplifica las animaciones cuando el dispositivo solicita reducir movimiento.
