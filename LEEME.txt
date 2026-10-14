@@ -1,21 +1,27 @@
-COTILLÓN 26/27 · TOP EVENTOS · SOBRE REALISTA
+COTILLÓN 26/27 · TOP EVENTOS · ENTRADA CON INFORMACIÓN
 
 Actualiza únicamente el repositorio ENTRADA-COTILL-N-26-27.
 
 1. Descomprime este ZIP.
 2. Abre ENTRADA-COTILL-N-26-27 en GitHub.
 3. Pulsa Add file > Upload files.
-4. Arrastra estos cuatro archivos sueltos, sin carpetas:
-   index.html
-   top-eventos.png
-   sello-cera.webp
-   papel-negro.webp
+4. Arrastra index.html, top-eventos.png, sello-cera.webp y papel-negro.webp sueltos, sin carpetas.
 5. Pulsa Commit changes y espera a que termine la actualización de GitHub Pages.
 6. Abre tu enlace:
-   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=cera-2
+   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=entrada-info-3
 
-El sello dorado tiene aspecto de cera vertida y lleva el logo grabado.
-El sobre negro utiliza una textura de papel y sombras en sus pliegues.
-La entrada conserva sus textos, diseño cuadrado y apertura animada.
+Si ya has subido la versión con el sello de cera y el papel realista, basta con sustituir index.html.
 
-Los archivos están preparados para GitHub Pages y también funcionan sin conexión.
+Información incorporada del cartel:
+- Cotillón Fin de Año 26/27. 31 diciembre 2026, 1:00 h.
+- Salón Benalúcar. C/ Blasco de Garay, 65. Sanlúcar la Mayor.
+- 1 consumición gratuita; más de 7 horas de música; chupito de bienvenida;
+  bolsa de cotillón; canapés; servicio de guardarropa; sorteos y muchas sorpresas.
+- 30 EUR hasta el 23/12/2026 y 40 EUR desde el 24/12/2026.
+  Fechas actualizadas a 2026, manteniendo los precios, según confirmación del usuario.
+- Próximamente, entradas a la venta.
+- Evento recomendado para mayores de 21 años.
+- Prohibida la entrada a menores de 18 años.
+- La organización se reserva el derecho de admisión.
+
+Se conserva el sobre negro realista, el sello de cera dorada y la entrada cuadrada blanca con detalles dorados.

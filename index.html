@@ -7,10 +7,10 @@
   <link rel="icon" type="image/png" href="top-eventos.png">
   <link rel="preload" as="image" href="sello-cera.webp">
   <link rel="preload" as="image" href="papel-negro.webp">
-  <meta name="description" content="Abre tu invitación al Cotillón 26/27 de TOP EVENTOS. Salón Benalucar, Sanlúcar la Mayor. Entrada para mayores de 18 años.">
+  <meta name="description" content="Cotillón Fin de Año 26/27 · TOP EVENTOS. Salón Benalúcar, C/ Blasco de Garay, 65, Sanlúcar la Mayor. Descubre los precios y todo lo que incluye tu entrada.">
   <title>Cotillón 26/27 · TOP EVENTOS</title>
   <style>
-    :root{color-scheme:dark;--gold:#ddbe76;--cream:#f4ebd8;--size:min(79vw,400px)}
+    :root{color-scheme:dark;--gold:#ddbe76;--cream:#f4ebd8;--size:min(79vw,400px);--ticket-size:min(94vw,570px)}
     *{box-sizing:border-box}
     html{min-height:100%;background:#080808}
     body{margin:0;color:var(--cream);font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 50% 58%,#2c231349,transparent 54%),linear-gradient(145deg,#101010,#070707 58%,#100e0a);min-height:100svh;overflow-x:hidden}
@@ -43,23 +43,40 @@
     .gold-logo{position:absolute;inset:17%;background:linear-gradient(145deg,#f7dd91 4%,#946421 46%,#f2d084 49%,#b08134 78%);-webkit-mask:url('top-eventos.png') center/contain no-repeat;mask:url('top-eventos.png') center/contain no-repeat;filter:drop-shadow(1px 1px 0 #68461b) drop-shadow(-.6px -.7px 0 #fff1b9);transform:translateZ(0)}
     .open-trigger:hover .seal{transform:translate(-50%,-50%) rotate(-7deg) scale(1.035);filter:drop-shadow(.5px 1.2px 0 #68431b) drop-shadow(0 3px 2px #000b) drop-shadow(2px 7px 6px #0008) brightness(1.045)}
     .open-trigger:active .seal{transform:translate(-50%,-50%) rotate(-7deg) scale(.985)}
-    .ticket{position:absolute;inset:0;z-index:3;container-type:inline-size;visibility:hidden;opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(9%) scale(.86);transition:transform 1.7s cubic-bezier(.2,.65,.15,1) 1.05s,clip-path 1.6s cubic-bezier(.2,.65,.15,1) 1.05s,opacity .25s 1.05s;box-shadow:0 28px 54px #0009;isolation:isolate}
-    .ticket-face{position:absolute;inset:0;text-align:center;overflow:hidden;color:#76531e;background:repeating-linear-gradient(103deg,#fff3 0,#fff3 1px,#99999908 1px,#99999908 3px),linear-gradient(120deg,#a5a7a8,#e7e8e8 20%,#c3c6c7 34%,#f4f4f1 51%,#d0d2d3 69%,#a5a8aa 100%);padding:6% 7%;display:flex;flex-direction:column;align-items:center}
+    .ticket{position:absolute;left:50%;top:0;width:var(--ticket-size);aspect-ratio:1;z-index:3;container-type:inline-size;visibility:hidden;opacity:0;clip-path:inset(0 0 100% 0);transform:translate(-50%,9%) scale(.7);transition:transform 1.7s cubic-bezier(.2,.65,.15,1) 1.05s,clip-path 1.6s cubic-bezier(.2,.65,.15,1) 1.05s,opacity .25s 1.05s;box-shadow:0 28px 54px #0009;isolation:isolate}
+    .ticket-face{position:absolute;inset:0;text-align:center;overflow:hidden;color:#76531e;background:repeating-linear-gradient(103deg,#fff3 0,#fff3 1px,#99999908 1px,#99999908 3px),linear-gradient(120deg,#a5a7a8,#e7e8e8 20%,#c3c6c7 34%,#f4f4f1 51%,#d0d2d3 69%,#a5a8aa 100%);padding:5.8% 7%;display:flex;flex-direction:column;align-items:center}
     .ticket-face::before{content:"";position:absolute;inset:3%;border:1px solid #a8823e;pointer-events:none;box-shadow:inset 0 0 0 2px #e9e2cf66}
     .ticket-face::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(120deg,transparent 20%,#ffffffa8 47%,transparent 70%);transform:translateX(-120%)}
-    .ticket-logo{position:relative;width:14%;aspect-ratio:1;margin-bottom:2%;flex-shrink:0}
+    .ticket-logo{position:relative;width:12cqw;aspect-ratio:1;flex-shrink:0}
     .ticket-logo .gold-logo{inset:0;background:linear-gradient(130deg,#59401b,#b0812e 37%,#74511c 55%,#ba923e);filter:drop-shadow(.5px .7px 0 #f9f5e7)}
-    .ticket-kicker{margin:0;font-size:2.4cqw;font-weight:600;letter-spacing:.32em;color:#775b2b}
-    .ticket h2{margin:2% 0 0;font-family:Georgia,'Times New Roman',serif;font-size:10.3cqw;line-height:1.03;font-weight:400;letter-spacing:.005em;color:#896125;text-shadow:0 1px 0 #fff8}
-    .ticket-year{font-family:Georgia,'Times New Roman',serif;font-size:9.3cqw;line-height:1.1;letter-spacing:.09em;margin:2% 0;color:#896125;text-shadow:0 1px 0 #fff8}
-    .ornament{width:65%;height:10px;display:flex;align-items:center;gap:10px;margin:3% 0 4%;color:#8b6527}
+    .ticket-heading{width:100%;display:flex;align-items:center;justify-content:center;gap:4cqw;flex-shrink:0}
+    .ticket-heading-copy{text-align:left}
+    .ticket-kicker{margin:0 0 .9cqw;font-size:2.5cqw;font-weight:600;letter-spacing:.19em;color:#775b2b}
+    .ticket h2{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:7.6cqw;line-height:1.06;font-weight:400;letter-spacing:.005em;color:#896125;text-shadow:0 1px 0 #fff8}
+    .ticket h2 span{white-space:nowrap;font-size:5.4cqw;letter-spacing:.04em}
+    .ticket-date{width:100%;border-top:1px solid #a9915b8c;border-bottom:1px solid #a9915b8c;padding:1.1cqw 0;margin:1.8cqw 0 1.6cqw;font-size:3cqw;font-weight:600;letter-spacing:.08em;color:#73531f;line-height:1.15}
+    .ornament{width:65%;height:1cqw;display:flex;align-items:center;gap:10px;margin:1.4cqw 0;color:#8b6527;flex-shrink:0}
     .ornament::before,.ornament::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#9c7838)}
     .ornament::after{transform:scaleX(-1)}
     .ornament span{display:block;width:6px;height:6px;transform:rotate(45deg);background:#997132}
-    .ticket-place-label{font-size:2.5cqw;letter-spacing:.24em;margin:0 0 2%;font-weight:600;color:#785a27}
-    .ticket-place{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:6.5cqw;line-height:1.12;margin:0;color:#78511c}
-    .ticket-town{font-size:3.55cqw;letter-spacing:.025em;margin:3% 0 0;color:#725321}
-    .ticket-age{margin:auto 0 0;padding:3.8% 0 0;border-top:1px solid #a28b5a88;width:100%;font-size:3.05cqw;font-weight:600;line-height:1.4;letter-spacing:.025em;color:#725221}
+    .ticket-place{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:5.35cqw;line-height:1.1;margin:0;color:#78511c}
+    .ticket-address{font-size:2.9cqw;letter-spacing:.015em;margin:1.4cqw 0 0;color:#725321;line-height:1.4}
+    .ticket-town{font-size:3cqw;letter-spacing:.025em;margin:.35cqw 0 0;color:#725321}
+    .includes-label{font-size:2.4cqw;letter-spacing:.18em;margin:0 0 1.3cqw;font-weight:600;color:#785a27}
+    .benefits{width:100%;display:grid;grid-template-columns:1fr 1fr;column-gap:3cqw;row-gap:.85cqw;padding:0;margin:0;list-style:none;text-align:left;color:#725321;font-size:2.8cqw;line-height:1.1}
+    .benefits li{position:relative;padding-left:2.2cqw}
+    .benefits li::before{content:"";position:absolute;left:.2cqw;top:.85cqw;width:.7cqw;height:.7cqw;background:#997132;transform:rotate(45deg)}
+    .benefits li:last-child{grid-column:1/-1;justify-self:center}
+    .prices{width:100%;display:grid;grid-template-columns:1fr 1fr;margin:1.8cqw 0 0;padding:1.1cqw 0;border-top:1px solid #a9915b8c;border-bottom:1px solid #a9915b8c}
+    .price{margin:0;display:flex;flex-direction:column;gap:.3cqw;line-height:1.1}
+    .price+.price{border-left:1px solid #a9915b8c}
+    .price strong{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:5.6cqw;color:#805a20;text-shadow:0 1px 0 #fff8}
+    .price span{font-size:2.65cqw;color:#725321}
+    .sale-note{margin:1.1cqw 0 .9cqw;font-size:2.7cqw;font-weight:600;letter-spacing:.08em;color:#7b5924}
+    .ticket-conditions{width:100%;margin:auto 0 0;font-size:2.3cqw;line-height:1.3;color:#715628}
+    .ticket-conditions p{margin:0}
+    .ticket-conditions .ticket-age{font-weight:700;margin:.4cqw 0;color:#67471d}
+    .ticket-admission{font-size:2.2cqw}
     .corner{position:absolute;width:7%;height:7%;border-color:#91692c;border-style:solid;pointer-events:none}
     .corner.a{left:5%;top:5%;border-width:1px 0 0 1px}.corner.b{right:5%;top:5%;border-width:1px 1px 0 0}.corner.c{left:5%;bottom:5%;border-width:0 0 1px 1px}.corner.d{right:5%;bottom:5%;border-width:0 1px 1px 0}
     .hint{position:absolute;left:50%;top:calc(100% + 35px);width:110%;transform:translateX(-50%);text-align:center;transition:opacity .25s;line-height:1.6;letter-spacing:.04em;font-size:14px;color:#d8c291;margin:0}
@@ -73,7 +90,8 @@
     .scene.is-open .seal{transform:translate(-50%,-64%) rotate(-13deg) scale(1.04)}
     .scene.is-open .flap{transform:rotateX(178deg)}
     .scene.is-open .envelope{transform:translateY(40%) scale(.9);opacity:.32}
-    .scene.is-open .ticket{visibility:visible;opacity:1;clip-path:inset(0);transform:translateY(-17%) scale(1)}
+    .scene.is-open .ticket{visibility:visible;opacity:1;clip-path:inset(0);transform:translate(-50%,-12%) scale(1)}
+    .scene.is-open{margin-bottom:calc(110px + max(0px, var(--ticket-size) * .88 - var(--size)))}
     .scene.is-presented .ticket{z-index:9}
     .scene.is-presented .ticket-face::after{animation:glint 1.6s ease-out both}
     .scene.is-open .hint{opacity:0}
@@ -104,15 +122,35 @@
       <article class="ticket" id="ticket" aria-labelledby="ticket-title" aria-hidden="true" inert>
         <div class="ticket-face">
           <span class="corner a"></span><span class="corner b"></span><span class="corner c"></span><span class="corner d"></span>
-          <div class="ticket-logo" role="img" aria-label="TOP EVENTOS"><span class="gold-logo"></span></div>
-          <p class="ticket-kicker">NOCHEVIEJA · ENTRADA</p>
-          <h2 id="ticket-title">COTILLÓN</h2>
-          <p class="ticket-year">26 / 27</p>
-          <div class="ornament" aria-hidden="true"><span></span></div>
-          <p class="ticket-place-label">LUGAR</p>
-          <p class="ticket-place">Salón Benalucar</p>
+          <div class="ticket-heading">
+            <div class="ticket-logo" role="img" aria-label="TOP EVENTOS"><span class="gold-logo"></span></div>
+            <div class="ticket-heading-copy">
+              <p class="ticket-kicker">FIN DE AÑO · NOCHEVIEJA</p>
+              <h2 id="ticket-title">COTILLÓN <span>26/27</span></h2>
+            </div>
+          </div>
+          <p class="ticket-date">31 DICIEMBRE 2026 · 1:00 h</p>
+          <p class="ticket-place">Salón Benalúcar</p>
+          <p class="ticket-address">C/ Blasco de Garay, 65</p>
           <p class="ticket-town">Sanlúcar la Mayor</p>
-          <p class="ticket-age">Entrada para mayores de 18 años</p>
+          <div class="ornament" aria-hidden="true"><span></span></div>
+          <p class="includes-label">TU ENTRADA INCLUYE</p>
+          <ul class="benefits">
+            <li>1 consumición gratuita</li><li>Más de 7 horas de música</li>
+            <li>Chupito de bienvenida</li><li>Bolsa de cotillón</li>
+            <li>Canapés</li><li>Servicio de guardarropa</li>
+            <li>Sorteos y muchas sorpresas</li>
+          </ul>
+          <div class="prices" aria-label="Precios de las entradas">
+            <p class="price"><strong>30 €</strong><span>Hasta el 23/12/2026</span></p>
+            <p class="price"><strong>40 €</strong><span>Desde el 24/12/2026</span></p>
+          </div>
+          <p class="sale-note">PRÓXIMAMENTE · ENTRADAS A LA VENTA</p>
+          <div class="ticket-conditions">
+            <p>Evento recomendado para mayores de 21 años.</p>
+            <p class="ticket-age">Prohibida la entrada a menores de 18 años.</p>
+            <p class="ticket-admission">La organización se reserva el derecho de admisión.</p>
+          </div>
         </div>
       </article>
       <button class="open-trigger" id="open-button" type="button" aria-controls="ticket" aria-expanded="false" aria-label="Abrir el sobre y descubrir la entrada al Cotillón 26/27">
