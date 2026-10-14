@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
+  <meta name="cotillon-version" content="doble-cara-6">
   <link rel="icon" type="image/png" href="top-eventos.png">
   <link rel="preload" as="image" href="sello-cera.webp">
   <link rel="preload" as="image" href="papel-negro.webp">
@@ -62,6 +63,27 @@
     .open-trigger:active .seal{transform:translate(-50%,-50%) rotate(-7deg) scale(.985)}
     .ticket{position:absolute;left:50%;top:0;width:var(--ticket-size);aspect-ratio:1;z-index:3;container-type:inline-size;visibility:hidden;opacity:0;clip-path:inset(0 0 100% 0);transform:translate(-50%,9%) rotateX(9deg) scale(.7);transition:transform 1.8s cubic-bezier(.2,.65,.15,1) 1.6s,clip-path 1.65s cubic-bezier(.2,.65,.15,1) 1.6s,opacity .25s 1.6s;box-shadow:0 28px 54px #0009;isolation:isolate}
     .ticket-face{position:absolute;inset:0;text-align:center;overflow:hidden;color:#76531e;background:repeating-linear-gradient(103deg,#fff3 0,#fff3 1px,#99999908 1px,#99999908 3px),linear-gradient(120deg,#a5a7a8,#e7e8e8 20%,#c3c6c7 34%,#f4f4f1 51%,#d0d2d3 69%,#a5a8aa 100%);padding:5.8% 7%;display:flex;flex-direction:column;align-items:center}
+    .ticket-rotor{position:absolute;inset:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transform:rotateY(0deg);transition:transform .95s cubic-bezier(.4,.05,.15,1)}
+    .ticket-rotor.is-flipped{transform:rotateY(180deg)}
+    .ticket-face{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    .ticket-front{transform:rotateY(0deg) translateZ(1px)}
+    .ticket-back{transform:rotateY(180deg) translateZ(1px)}
+    .ticket-front .ticket-logo{width:12cqw;margin-bottom:1.5cqw}
+    .ticket-front .ticket-kicker{margin:0 0 .6cqw;font-size:2.4cqw;line-height:1.2;letter-spacing:.3em}
+    .ticket .ticket-front h2{margin:1.8cqw 0 0;font-size:10.5cqw;line-height:1.03;font-weight:400}
+    .front-year{font-family:Georgia,'Times New Roman',serif;font-size:9cqw;line-height:1.1;letter-spacing:.09em;margin:1.5cqw 0;color:#896125;text-shadow:0 1px 0 #fff8}
+    .ticket-front .ornament{margin:1.6cqw 0}
+    .front-place-label{font-size:2.4cqw;line-height:1.2;letter-spacing:.24em;margin:0 0 1.5cqw;font-weight:600;color:#785a27}
+    .ticket-front .ticket-place{font-size:6.3cqw;line-height:1.1}
+    .ticket-front .ticket-town{font-size:3.6cqw;line-height:1.15;margin:1.8cqw 0 0}
+    .front-age{margin:auto 0 0;padding:2cqw 0 0;border-top:1px solid #a28b5a88;width:100%;font-size:3cqw;font-weight:600;line-height:1.35;letter-spacing:.015em;color:#725221}
+    .discover-button{margin:2.2cqw 0 0;position:relative;z-index:3;flex-shrink:0;min-height:44px;border:1px solid #b18a40;border-radius:30px;padding:1.7cqw 4cqw;background:linear-gradient(115deg,#c39a45,#f1d894 45%,#d6b361);color:#3f2d0c;box-shadow:0 3px 9px #68451b22,inset 0 1px #fff4d6;font-size:clamp(11px,2.85cqw,17px);line-height:1.25;letter-spacing:.075em;font-weight:700;cursor:pointer;touch-action:manipulation}
+    .discover-button:hover{background:linear-gradient(115deg,#d0aa58,#fae7b0 45%,#e3c77b)}
+    .discover-button:focus-visible{outline-color:#72501c;outline-offset:4px}
+    .ticket-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+    .return-button{margin-top:14px;min-height:44px;border:1px solid #a18144;border-radius:30px;background:#221b10;color:#e1cc9f;padding:12px 22px;font-size:12px;letter-spacing:.04em;cursor:pointer}
+    .return-button[hidden]{display:none}
+    .return-button:disabled,.discover-button:disabled{cursor:default}
     .ticket-face::before{content:"";position:absolute;inset:3%;border:1px solid #a8823e;pointer-events:none;box-shadow:inset 0 0 0 2px #e9e2cf66}
     .ticket-face::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(120deg,transparent 25%,#fff7df00 39%,#fff5d863 49%,#fff7df00 59%,transparent 75%);transform:translateX(-120%);opacity:0}
     .ticket-logo{position:relative;width:12cqw;aspect-ratio:1;flex-shrink:0}
@@ -109,7 +131,7 @@
     .scene.is-open .envelope{transform:translateY(40%) scale(.9);opacity:.32}
     .scene.is-open .ticket{visibility:visible;opacity:1;clip-path:inset(0);transform:translate(-50%,-12%) rotateX(0) scale(1)}
     .scene.is-open{margin-bottom:calc(110px + max(0px, var(--ticket-size) * .88 - var(--size)))}
-    .scene.is-presented .ticket{z-index:9}
+    .scene.is-presented .ticket{z-index:9;clip-path:none;perspective:1600px;-webkit-perspective:1600px}
     .scene.is-presented .ticket-face::after{animation:glint 1.05s ease-out both}
     .scene.is-closing .envelope{transition:transform 1.35s ease,opacity .7s ease}
     .scene.is-closing .flap{transition:transform 1.1s cubic-bezier(.4,0,.2,1) .25s}
@@ -153,8 +175,22 @@
         <span class="seal" aria-hidden="true"><img class="seal-image" src="sello-cera.webp" width="960" height="960" alt="" decoding="sync" fetchpriority="high" draggable="false"></span>
       </button>
       </div></div>
-      <article class="ticket" id="ticket" aria-labelledby="ticket-title" aria-hidden="true" inert>
-        <div class="ticket-face">
+      <article class="ticket" id="ticket" aria-label="Entrada al Cotillón 26/27" aria-hidden="true" inert>
+        <div class="ticket-rotor" id="ticket-rotor">
+        <section class="ticket-face ticket-front" id="ticket-front" aria-labelledby="ticket-front-title" aria-hidden="false">
+          <span class="corner a"></span><span class="corner b"></span><span class="corner c"></span><span class="corner d"></span>
+          <div class="ticket-logo" role="img" aria-label="TOP EVENTOS"><span class="gold-logo"></span></div>
+          <p class="ticket-kicker">NOCHEVIEJA · ENTRADA</p>
+          <h2 id="ticket-front-title">COTILLÓN</h2>
+          <p class="front-year">26 / 27</p>
+          <div class="ornament" aria-hidden="true"><span></span></div>
+          <p class="front-place-label">LUGAR</p>
+          <p class="ticket-place">Salón Benalucar</p>
+          <p class="ticket-town">Sanlúcar la Mayor</p>
+          <p class="front-age">Entrada para mayores de 18 años</p>
+          <button class="discover-button" id="discover-button" type="button" aria-controls="ticket-back">DESCUBRIR INFORMACIÓN</button>
+        </section>
+        <section class="ticket-face ticket-back" id="ticket-back" aria-labelledby="ticket-title" aria-hidden="true" inert>
           <span class="corner a"></span><span class="corner b"></span><span class="corner c"></span><span class="corner d"></span>
           <div class="ticket-heading">
             <div class="ticket-logo" role="img" aria-label="TOP EVENTOS"><span class="gold-logo"></span></div>
@@ -185,16 +221,19 @@
             <p class="ticket-age">Prohibida la entrada a menores de 18 años.</p>
             <p class="ticket-admission">La organización se reserva el derecho de admisión.</p>
           </div>
+        </section>
         </div>
       </article>
       <div class="particles" id="particles" aria-hidden="true"></div>
       <p class="hint" id="hint">Pulsa el sello para descubrir tu entrada</p>
     </div>
     <p class="status" id="status" role="status" aria-live="polite"></p>
-    <button class="close-button" id="close-button" type="button" disabled>Volver a cerrar el sobre</button>
+    <div class="ticket-controls">
+      <button class="return-button" id="return-button" type="button" hidden aria-controls="ticket-front">VOLVER AL FRONTAL</button>
+      <button class="close-button" id="close-button" type="button" disabled>Volver a cerrar el sobre</button>
+    </div>
     <p class="footer">TOP EVENTOS · COTILLÓN 26/27</p>
   </main>
-  <audio id="opening-sound" src="apertura-sobre.mp3" preload="auto" playsinline hidden aria-hidden="true"></audio>
   <script>
     (() => {
       const scene = document.getElementById('scene');
@@ -204,11 +243,17 @@
       const ticket = document.getElementById('ticket');
       const status = document.getElementById('status');
       const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-      const sound = document.getElementById('opening-sound');
+      const rotor = document.getElementById('ticket-rotor');
+      const front = document.getElementById('ticket-front');
+      const back = document.getElementById('ticket-back');
+      const discoverButton = document.getElementById('discover-button');
+      const returnButton = document.getElementById('return-button');
       const particles = document.getElementById('particles');
       const shell = document.querySelector('.envelope-shell');
       const timers = new Set();
       let state = 'closed';
+      let backShown = false;
+      let flipping = false;
 
       function later(callback, delay) {
         const timer = setTimeout(() => {timers.delete(timer);callback();}, delay);
@@ -232,12 +277,43 @@
           particles.append(particle);
         }
       }
-      function playOpeningSound() {
-        try {
-          sound.currentTime = 0;
-          const playback = sound.play();
-          if (playback && typeof playback.catch === 'function') playback.catch(() => {});
-        } catch (_) {}
+      function resetCard() {
+        rotor.classList.remove('is-flipped');
+        backShown = false;
+        flipping = false;
+        front.setAttribute('aria-hidden', 'false');
+        front.removeAttribute('inert');
+        back.setAttribute('aria-hidden', 'true');
+        back.setAttribute('inert', '');
+        discoverButton.disabled = false;
+        returnButton.hidden = true;
+        returnButton.disabled = false;
+        ticket.removeAttribute('aria-busy');
+      }
+      function flipCard(showBack) {
+        if (state !== 'open' || flipping || showBack === backShown) return;
+        flipping = true;
+        discoverButton.disabled = true;
+        returnButton.disabled = true;
+        closeButton.disabled = true;
+        front.setAttribute('inert', '');
+        back.setAttribute('inert', '');
+        ticket.setAttribute('aria-busy', 'true');
+        rotor.classList.toggle('is-flipped', showBack);
+        later(() => {
+          backShown = showBack;
+          flipping = false;
+          front.setAttribute('aria-hidden', String(showBack));
+          back.setAttribute('aria-hidden', String(!showBack));
+          (showBack ? back : front).removeAttribute('inert');
+          ticket.removeAttribute('aria-busy');
+          discoverButton.disabled = false;
+          returnButton.hidden = !showBack;
+          returnButton.disabled = false;
+          closeButton.disabled = false;
+          status.textContent = showBack ? 'Toda la información del Cotillón 26/27' : 'Tu entrada al Cotillón 26/27';
+          (showBack ? returnButton : discoverButton).focus({preventScroll: true});
+        }, reducedMotion.matches ? 0 : 1000);
       }
 
       scene.addEventListener('pointermove', event => {
@@ -256,7 +332,7 @@
         clearTimers();
         resetTilt();
         prepareParticles();
-        playOpeningSound();
+        resetCard();
         openButton.disabled = true;
         openButton.setAttribute('aria-expanded', 'true');
         main.classList.add('is-opening');
@@ -272,16 +348,15 @@
           status.textContent = 'Tu entrada al Cotillón 26/27';
           main.classList.add('is-revealed');
           closeButton.disabled = false;
-          closeButton.focus({preventScroll: true});
+          discoverButton.focus({preventScroll: true});
         }, reducedMotion.matches ? 0 : 4300);
       }
 
       function closeEnvelope() {
-        if (state !== 'open') return;
+        if (state !== 'open' || flipping) return;
         state = 'closing';
         clearTimers();
-        sound.pause();
-        sound.currentTime = 0;
+        returnButton.hidden = true;
         closeButton.disabled = true;
         main.classList.remove('is-revealed');
         scene.classList.add('is-closing');
@@ -291,6 +366,7 @@
         status.textContent = '';
         later(() => {
           state = 'closed';
+          resetCard();
           scene.classList.remove('is-closing');
           main.classList.remove('is-opening');
           particles.replaceChildren();
@@ -303,6 +379,8 @@
 
       openButton.addEventListener('click', openEnvelope);
       closeButton.addEventListener('click', closeEnvelope);
+      discoverButton.addEventListener('click', () => flipCard(true));
+      returnButton.addEventListener('click', () => flipCard(false));
     })();
   </script>
 </body>

@@ -1,32 +1,23 @@
-COTILLÓN 26/27 · TOP EVENTOS · APERTURA CINEMATOGRÁFICA
+COTILLÓN 26/27 · TOP EVENTOS · ENTRADA CON DOS CARAS · SIN SONIDO
 
-Actualiza únicamente el repositorio ENTRADA-COTILL-N-26-27.
-
-1. Descomprime este ZIP.
-2. Abre ENTRADA-COTILL-N-26-27 en GitHub.
+ACTUALIZAR LA WEB EXISTENTE:
+1. Descomprime el ZIP.
+2. En GitHub, abre ENTRADA-COTILL-N-26-27.
 3. Pulsa Add file > Upload files.
-4. Arrastra estos cinco archivos sueltos, sin carpetas:
-   index.html
-   top-eventos.png
-   sello-cera.webp
-   papel-negro.webp
-   apertura-sobre.mp3
-5. Pulsa Commit changes y espera a que termine la actualización de GitHub Pages.
-6. Abre:
-   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=cine-4
+4. Sube el nuevo index.html suelto y pulsa Commit changes.
+5. Espera a que termine la publicación y abre:
+   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=doble-cara-6
 
-Si ya tienes la versión de la entrada con toda la información, solo necesitas actualizar index.html y añadir apertura-sobre.mp3.
+Solo tienes que actualizar index.html. El logo, el sello de cera y la textura del papel siguen siendo los mismos.
+El archivo de sonido anterior ya no se carga ni se utiliza. Puedes dejarlo en GitHub; no sonará.
 
-Efectos incluidos:
-- Luz cálida sobre el papel y brillo suave en el sello.
-- Movimiento leve y profundidad del sobre.
-- El sello se levanta antes de abrirse la solapa.
-- Sonido original de cera y papel, que comienza al pulsar el sobre.
-- Partículas doradas al salir la entrada.
-- Destello que recorre la entrada.
-- La secuencia termina en unos cuatro segundos y deja la entrada quieta para leerla.
-- Puedes cerrar el sobre y repetir la apertura.
+Para instalar esta versión en un repositorio vacío, sube index.html, top-eventos.png, sello-cera.webp y papel-negro.webp juntos, sin carpetas.
 
-La entrada conserva el diseño, la información y los precios aprobados.
-No hay reproductor visible. El sonido es un efecto breve y no se reproduce en bucle.
-La versión simplifica las animaciones cuando el dispositivo solicita reducir movimiento.
+FUNCIONAMIENTO:
+- Al pulsar el sello, el sobre se abre sin sonido.
+- Sale la entrada cuadrada blanca con detalles dorados y el diseño sencillo inicial.
+- Pulsa DESCUBRIR INFORMACIÓN para girar la entrada y leer todos los datos por detrás.
+- Pulsa VOLVER AL FRONTAL para volver a la primera cara.
+- Puedes cerrar y abrir el sobre de nuevo; siempre empieza mostrando el frontal.
+
+Se conserva la información del cartel y las fechas de precios actualizadas a diciembre de 2026, según tu confirmación.
