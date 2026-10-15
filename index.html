@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
-  <meta name="cotillon-version" content="particulas-7">
+  <meta name="cotillon-version" content="oro-continuo-8">
   <link rel="icon" type="image/png" href="top-eventos.png">
   <link rel="preload" as="image" href="sello-cera.webp">
   <link rel="preload" as="image" href="papel-negro.webp">
@@ -247,6 +247,7 @@
       const particlesCanvas = document.getElementById('gold-particles');
       const particlesContext = particlesCanvas.getContext('2d');
       let particlesFrame = 0;
+      const goldSprites = [];
       const shell = document.querySelector('.envelope-shell');
       const timers = new Set();
       let state = 'closed';
@@ -276,72 +277,110 @@
         if (particlesContext) particlesContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
         particlesCanvas.dataset.active = 'false';
       }
-      function startParticles() {
+      function prepareGoldSprites() {
+        if (goldSprites.length) return;
+        const shades = ['#fff0a9', '#ffcf54', '#e8ac32', '#ffe394'];
+        for (let i = 0; i < 8; i++) {
+          const sprite = document.createElement('canvas');
+          sprite.width = sprite.height = 96;
+          const ctx = sprite.getContext('2d');
+          ctx.scale(2, 2);
+          ctx.translate(24, 24);
+          ctx.shadowColor = '#eab641';
+          ctx.shadowBlur = 5;
+          const foil = ctx.createLinearGradient(-15, -15, 15, 15);
+          foil.addColorStop(0, '#fff7cc');
+          foil.addColorStop(.32, shades[i % 4]);
+          foil.addColorStop(.53, '#ffeb9e');
+          foil.addColorStop(1, '#ae7417');
+          ctx.fillStyle = foil;
+          ctx.strokeStyle = '#966014';
+          ctx.lineWidth = .65;
+          ctx.beginPath();
+          if (i >= 4) {
+            [[0,-16],[4,-4],[16,0],[4,4],[0,16],[-4,4],[-16,0],[-4,-4]].forEach(([x,y], index) => index ? ctx.lineTo(x,y) : ctx.moveTo(x,y));
+          } else {
+            ctx.moveTo(-14,-9);ctx.lineTo(14,-9);ctx.lineTo(14,9);ctx.lineTo(-14,9);
+          }
+          ctx.closePath();ctx.fill();ctx.shadowBlur = 0;ctx.stroke();
+          goldSprites.push(sprite);
+        }
+      }
+      function startParticles(resume = false) {
         clearParticles();
         if (!particlesContext || reducedMotion.matches) return;
         sizeParticlesCanvas();
+        prepareGoldSprites();
         const box = scene.getBoundingClientRect();
-        const gold = ['#fff0b6', '#efc96f', '#d0a14b', '#f6dc93'];
-        const motes = [];
-        for (let i = 0; i < 40; i++) {
-          const wave = i < 12 ? 0 : 1;
+        const bursts = [];
+        for (let i = 0; i < (resume ? 0 : 120); i++) {
+          const wave = i < 40 ? 0 : 1;
           const seed = (i * 37 + 19) % 101 / 100;
           const spread = ((i * 29 + 7) % 101 / 100 - .5) * 2;
-          motes.push({
+          bursts.push({
             x: box.left + box.width * (.5 + spread * (wave ? .15 : .07)),
             y: box.top + window.scrollY + box.width * (wave ? .19 : .47),
-            vx: spread * (65 + seed * 105),
-            vy: -(45 + seed * 115),
-            birth: (wave ? 1.28 : .54) + (i % 6) * .055,
-            life: 1.55 + seed * .95,
-            size: 2.8 + seed * 2.8,
+            vx: spread * (85 + seed * 125),
+            vy: -(65 + seed * 130),
+            birth: (wave ? 1.2 : .48) + (i % 10) * .028,
+            life: 2 + seed * 1.1,
+            size: 6.5 + seed * 6.5,
             angle: i * .81,
             spin: spread * 1.8,
-            color: gold[i % gold.length],
-            star: i % 5 === 0
+            sprite: goldSprites[i % 8]
           });
         }
+        const count = window.innerWidth < 600 ? 100 : window.innerWidth < 1000 ? 145 : 200;
+        const field = Array.from({length:count}, (_, i) => ({
+          u: ((i * 67 + 13) % 211) / 211,
+          v: ((i * 97 + 5) % 223) / 223,
+          speed: 18 + (i * 13 % 28),
+          drift: 9 + (i * 7 % 24),
+          size: 6 + (i * 11 % 65) / 10,
+          angle: i * .81,
+          spin: ((i % 7) - 3) * .23,
+          sprite: goldSprites[i % 8]
+        }));
         const start = performance.now();
+        let lastFrame = 0;
         particlesCanvas.dataset.active = 'true';
+        particlesCanvas.dataset.mode = 'continuous';
+        particlesCanvas.dataset.count = String(count);
+        function paint(mote, x, y, angle, opacity, card, heading) {
+          if (card && x > card.left + card.width*.08 && x < card.right - card.width*.08 && y > card.top + card.height*.08 && y < card.bottom - card.height*.08) opacity *= .1;
+          if (heading && x > heading.left && x < heading.right && y > heading.top && y < heading.bottom) opacity *= .35;
+          particlesContext.save();
+          particlesContext.translate(x, y);
+          particlesContext.rotate(angle);
+          particlesContext.globalAlpha = opacity;
+          particlesContext.drawImage(mote.sprite, -mote.size, -mote.size, mote.size*2, mote.size*2);
+          particlesContext.restore();
+        }
         function draw(now) {
+          if (document.hidden) {clearParticles();return;}
+          if (now - lastFrame < 32) {particlesFrame = requestAnimationFrame(draw);return;}
+          lastFrame = now;
           const elapsed = (now - start) / 1000;
-          particlesContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
-          if (elapsed > 4.25) {clearParticles();return;}
-          for (const mote of motes) {
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          particlesContext.clearRect(0, 0, width, height);
+          const card = state === 'open' ? ticket.getBoundingClientRect() : null;
+          const heading = document.querySelector('header').getBoundingClientRect();
+          for (const mote of bursts) {
             const age = elapsed - mote.birth;
             if (age < 0 || age > mote.life) continue;
             const progress = age / mote.life;
-            const opacity = Math.min(1, age / .13) * Math.min(1, (1 - progress) / .35) * .94;
+            const opacity = Math.min(1, age / .1) * Math.min(1, (1 - progress) / .3);
             const x = mote.x + mote.vx * age;
             const y = mote.y - window.scrollY + mote.vy * age + 30 * age * age;
-            particlesContext.save();
-            particlesContext.translate(x, y);
-            particlesContext.rotate(mote.angle + mote.spin * age);
-            particlesContext.globalAlpha = opacity;
-            particlesContext.shadowColor = '#e5b85b';
-            particlesContext.shadowBlur = 4;
-            const foil = particlesContext.createLinearGradient(-mote.size, -mote.size, mote.size, mote.size);
-            foil.addColorStop(0, '#fff3c1');
-            foil.addColorStop(.45, mote.color);
-            foil.addColorStop(1, '#a87623');
-            particlesContext.fillStyle = foil;
-            particlesContext.strokeStyle = '#9b722b';
-            particlesContext.lineWidth = .45;
-            particlesContext.beginPath();
-            if (mote.star) {
-              const points = [[0,-1],[.25,-.25],[1,0],[.25,.25],[0,1],[-.25,.25],[-1,0],[-.25,-.25]];
-              points.forEach(([px,py], index) => index ? particlesContext.lineTo(px*mote.size*1.25,py*mote.size*1.25) : particlesContext.moveTo(px*mote.size*1.25,py*mote.size*1.25));
-            } else {
-              particlesContext.moveTo(-mote.size*.65, -mote.size*.4);
-              particlesContext.lineTo(mote.size*.65, -mote.size*.4);
-              particlesContext.lineTo(mote.size*.65, mote.size*.4);
-              particlesContext.lineTo(-mote.size*.65, mote.size*.4);
-            }
-            particlesContext.closePath();
-            particlesContext.fill();
-            particlesContext.shadowBlur = 0;
-            particlesContext.stroke();
-            particlesContext.restore();
+            paint(mote, x, y, mote.angle + mote.spin*age, opacity, card, heading);
+          }
+          const fade = resume ? 1 : Math.max(0, Math.min(1, (elapsed-.65)/1.45));
+          for (const mote of field) {
+            const x = mote.u*width + Math.sin(elapsed*.55 + mote.angle)*mote.drift;
+            const y = ((mote.v*(height+100) + elapsed*mote.speed) % (height+100))-50;
+            const opacity = fade * (.72 + .25*Math.sin(elapsed*.7 + mote.angle)**2);
+            paint(mote, x, y, mote.angle + elapsed*mote.spin, opacity, card, heading);
           }
           particlesFrame = requestAnimationFrame(draw);
         }
@@ -454,6 +493,11 @@
       returnButton.addEventListener('click', () => flipCard(false));
       window.addEventListener('resize', sizeParticlesCanvas);
       window.addEventListener('pagehide', clearParticles);
+      function resumeParticles() {
+        if (!document.hidden && (state === 'open' || state === 'opening') && particlesCanvas.dataset.active !== 'true') startParticles(true);
+      }
+      document.addEventListener('visibilitychange', () => document.hidden ? clearParticles() : resumeParticles());
+      window.addEventListener('pageshow', resumeParticles);
       sizeParticlesCanvas();
     })();
   </script>
