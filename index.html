@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
-  <meta name="cotillon-version" content="doble-cara-6">
+  <meta name="cotillon-version" content="particulas-7">
   <link rel="icon" type="image/png" href="top-eventos.png">
   <link rel="preload" as="image" href="sello-cera.webp">
   <link rel="preload" as="image" href="papel-negro.webp">
@@ -36,10 +36,7 @@
     .scene.is-open .envelope-sheen::after,.scene.is-closing .envelope-sheen::after{animation:none;opacity:0}
     .opening-glow{position:absolute;inset:-15% 0;z-index:-1;opacity:0;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,#cfac5d2b,transparent 65%);filter:blur(8px)}
     .scene.is-open .opening-glow{animation:opening-glow 4.3s ease-in-out both}
-    .particles{position:absolute;inset:0;z-index:20;pointer-events:none;overflow:visible}
-    .particle{position:absolute;left:var(--x);top:var(--y);width:var(--dot);height:var(--dot);opacity:0;background:#efc76d;border-radius:50%;box-shadow:0 0 0 .35px #946c2d99,0 0 6px #e6b55c90;transform:translate(0,0) scale(.4)}
-    .particle:nth-child(3n){border-radius:0;clip-path:polygon(50% 0,64% 35%,100% 50%,64% 65%,50% 100%,36% 65%,0 50%,36% 35%);width:calc(var(--dot) * 1.8);height:calc(var(--dot) * 1.8)}
-    .scene.is-extracting .particle{animation:gold-dust 1.55s cubic-bezier(.15,.55,.35,1) var(--delay) both}
+    .gold-particles{position:fixed;left:0;top:0;z-index:100;pointer-events:none;display:block;width:100%;height:100%;contain:strict}
     .scene.is-opening .hint,.scene.is-closing .hint{opacity:0}
     .is-opening header .intro{opacity:0;transition:opacity .3s}
     .scene::after{content:"";position:absolute;left:9%;right:9%;bottom:-12%;height:18%;border-radius:50%;background:#000;filter:blur(24px);opacity:.85;z-index:-1;transition:transform 1.4s,opacity 1.4s}
@@ -145,7 +142,6 @@
     @keyframes paper-light{0%,8%{transform:translateX(-180%) skewX(-22deg)}40%,100%{transform:translateX(390%) skewX(-22deg)}}
     @keyframes wax-light{0%,12%,45%,100%{filter:brightness(1)}29%{filter:brightness(1.12)}}
     @keyframes seal-lift{0%{transform:translate(-50%,-50%) translateZ(0) rotateZ(-7deg) scale(1);opacity:1}40%{transform:translate(-50%,-66%) translateZ(35px) rotateZ(-11deg) scale(1.09);opacity:1}100%{transform:translate(-42%,-133%) translateZ(95px) rotateZ(-19deg) scale(1.18);opacity:0}}
-    @keyframes gold-dust{0%{opacity:0;transform:translate(0,0) scale(.4)}15%{opacity:.85}65%{opacity:.45}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
     @keyframes opening-glow{0%{opacity:0}40%{opacity:.8}75%{opacity:.5}100%{opacity:0}}
     @media(min-width:700px){main{padding-top:42px}.scene{margin-top:98px;margin-bottom:126px}}
     @media(max-width:359px){main{padding:30px 12px 28px}.eyebrow{font-size:9px}.intro{font-size:12px}.scene{margin-top:78px;margin-bottom:90px}.hint{font-size:12px}.year{font-size:21px}}
@@ -224,7 +220,6 @@
         </section>
         </div>
       </article>
-      <div class="particles" id="particles" aria-hidden="true"></div>
       <p class="hint" id="hint">Pulsa el sello para descubrir tu entrada</p>
     </div>
     <p class="status" id="status" role="status" aria-live="polite"></p>
@@ -234,6 +229,7 @@
     </div>
     <p class="footer">TOP EVENTOS · COTILLÓN 26/27</p>
   </main>
+  <canvas class="gold-particles" id="gold-particles" aria-hidden="true"></canvas>
   <script>
     (() => {
       const scene = document.getElementById('scene');
@@ -248,7 +244,9 @@
       const back = document.getElementById('ticket-back');
       const discoverButton = document.getElementById('discover-button');
       const returnButton = document.getElementById('return-button');
-      const particles = document.getElementById('particles');
+      const particlesCanvas = document.getElementById('gold-particles');
+      const particlesContext = particlesCanvas.getContext('2d');
+      let particlesFrame = 0;
       const shell = document.querySelector('.envelope-shell');
       const timers = new Set();
       let state = 'closed';
@@ -261,21 +259,93 @@
       }
       function clearTimers() {for (const timer of timers) clearTimeout(timer);timers.clear();}
       function resetTilt() {shell.style.removeProperty('--tilt-x');shell.style.removeProperty('--tilt-y');}
-      function prepareParticles() {
-        particles.replaceChildren();
-        if (reducedMotion.matches) return;
-        const width = scene.clientWidth;
-        for (let i=0; i<14; i++) {
-          const particle = document.createElement('span');
-          particle.className = 'particle';
-          particle.style.setProperty('--x', `${35 + (i * 13 % 32)}%`);
-          particle.style.setProperty('--y', `${6 + (i * 7 % 17)}%`);
-          particle.style.setProperty('--dx', `${((i * 17 % 71) - 35) / 100 * width}px`);
-          particle.style.setProperty('--dy', `${-(.24 + (i * 11 % 22) / 100) * width}px`);
-          particle.style.setProperty('--dot', `${2.2 + (i % 4) * .55}px`);
-          particle.style.setProperty('--delay', `${(i % 5) * .06}s`);
-          particles.append(particle);
+      function sizeParticlesCanvas() {
+        if (!particlesContext) return;
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        particlesCanvas.width = Math.round(width * ratio);
+        particlesCanvas.height = Math.round(height * ratio);
+        particlesCanvas.style.width = `${width}px`;
+        particlesCanvas.style.height = `${height}px`;
+        particlesContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+      }
+      function clearParticles() {
+        cancelAnimationFrame(particlesFrame);
+        particlesFrame = 0;
+        if (particlesContext) particlesContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        particlesCanvas.dataset.active = 'false';
+      }
+      function startParticles() {
+        clearParticles();
+        if (!particlesContext || reducedMotion.matches) return;
+        sizeParticlesCanvas();
+        const box = scene.getBoundingClientRect();
+        const gold = ['#fff0b6', '#efc96f', '#d0a14b', '#f6dc93'];
+        const motes = [];
+        for (let i = 0; i < 40; i++) {
+          const wave = i < 12 ? 0 : 1;
+          const seed = (i * 37 + 19) % 101 / 100;
+          const spread = ((i * 29 + 7) % 101 / 100 - .5) * 2;
+          motes.push({
+            x: box.left + box.width * (.5 + spread * (wave ? .15 : .07)),
+            y: box.top + window.scrollY + box.width * (wave ? .19 : .47),
+            vx: spread * (65 + seed * 105),
+            vy: -(45 + seed * 115),
+            birth: (wave ? 1.28 : .54) + (i % 6) * .055,
+            life: 1.55 + seed * .95,
+            size: 2.8 + seed * 2.8,
+            angle: i * .81,
+            spin: spread * 1.8,
+            color: gold[i % gold.length],
+            star: i % 5 === 0
+          });
         }
+        const start = performance.now();
+        particlesCanvas.dataset.active = 'true';
+        function draw(now) {
+          const elapsed = (now - start) / 1000;
+          particlesContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+          if (elapsed > 4.25) {clearParticles();return;}
+          for (const mote of motes) {
+            const age = elapsed - mote.birth;
+            if (age < 0 || age > mote.life) continue;
+            const progress = age / mote.life;
+            const opacity = Math.min(1, age / .13) * Math.min(1, (1 - progress) / .35) * .94;
+            const x = mote.x + mote.vx * age;
+            const y = mote.y - window.scrollY + mote.vy * age + 30 * age * age;
+            particlesContext.save();
+            particlesContext.translate(x, y);
+            particlesContext.rotate(mote.angle + mote.spin * age);
+            particlesContext.globalAlpha = opacity;
+            particlesContext.shadowColor = '#e5b85b';
+            particlesContext.shadowBlur = 4;
+            const foil = particlesContext.createLinearGradient(-mote.size, -mote.size, mote.size, mote.size);
+            foil.addColorStop(0, '#fff3c1');
+            foil.addColorStop(.45, mote.color);
+            foil.addColorStop(1, '#a87623');
+            particlesContext.fillStyle = foil;
+            particlesContext.strokeStyle = '#9b722b';
+            particlesContext.lineWidth = .45;
+            particlesContext.beginPath();
+            if (mote.star) {
+              const points = [[0,-1],[.25,-.25],[1,0],[.25,.25],[0,1],[-.25,.25],[-1,0],[-.25,-.25]];
+              points.forEach(([px,py], index) => index ? particlesContext.lineTo(px*mote.size*1.25,py*mote.size*1.25) : particlesContext.moveTo(px*mote.size*1.25,py*mote.size*1.25));
+            } else {
+              particlesContext.moveTo(-mote.size*.65, -mote.size*.4);
+              particlesContext.lineTo(mote.size*.65, -mote.size*.4);
+              particlesContext.lineTo(mote.size*.65, mote.size*.4);
+              particlesContext.lineTo(-mote.size*.65, mote.size*.4);
+            }
+            particlesContext.closePath();
+            particlesContext.fill();
+            particlesContext.shadowBlur = 0;
+            particlesContext.stroke();
+            particlesContext.restore();
+          }
+          particlesFrame = requestAnimationFrame(draw);
+        }
+        particlesFrame = requestAnimationFrame(draw);
       }
       function resetCard() {
         rotor.classList.remove('is-flipped');
@@ -331,7 +401,7 @@
         state = 'opening';
         clearTimers();
         resetTilt();
-        prepareParticles();
+        startParticles();
         resetCard();
         openButton.disabled = true;
         openButton.setAttribute('aria-expanded', 'true');
@@ -356,6 +426,7 @@
         if (state !== 'open' || flipping) return;
         state = 'closing';
         clearTimers();
+        clearParticles();
         returnButton.hidden = true;
         closeButton.disabled = true;
         main.classList.remove('is-revealed');
@@ -369,7 +440,7 @@
           resetCard();
           scene.classList.remove('is-closing');
           main.classList.remove('is-opening');
-          particles.replaceChildren();
+          clearParticles();
           openButton.disabled = false;
           openButton.setAttribute('aria-expanded', 'false');
           document.getElementById('hint').removeAttribute('aria-hidden');
@@ -381,6 +452,9 @@
       closeButton.addEventListener('click', closeEnvelope);
       discoverButton.addEventListener('click', () => flipCard(true));
       returnButton.addEventListener('click', () => flipCard(false));
+      window.addEventListener('resize', sizeParticlesCanvas);
+      window.addEventListener('pagehide', clearParticles);
+      sizeParticlesCanvas();
     })();
   </script>
 </body>
