@@ -1,0 +1,33 @@
+/* El frontal y el sobre conservan su diseño. El reverso sigue siendo cuadrado. */
+.ticket-back{padding:5.1cqw 7cqw 4.8cqw}
+.ticket-back .ticket-heading{gap:3.2cqw;min-height:9.2cqw}
+.ticket-back .ticket-logo{width:9.2cqw}
+.ticket-back .ticket-kicker{font-size:2.05cqw;margin:0 0 .65cqw;letter-spacing:.16em}
+.ticket-back h2{font-size:6.7cqw;line-height:1.05}
+.ticket-back h2 span{font-size:4.7cqw}
+.ticket-back .ticket-date{font-size:2.65cqw;line-height:1.15;margin:1.2cqw 0 1.1cqw;padding:.8cqw 0}
+.ticket-back .ticket-place{font-size:4.2cqw;line-height:1.12}
+.back-location{font-size:2.5cqw;line-height:1.3;margin:.9cqw 0 1.5cqw;color:#725321;letter-spacing:.005em}
+.ticket-back .includes-label{font-size:2.15cqw;margin:0 0 1.1cqw;letter-spacing:.15em}
+.ticket-back .benefits{font-size:2.6cqw;line-height:1.15;row-gap:.65cqw;column-gap:2.5cqw}
+.ticket-back .benefits li{padding-left:1.9cqw}
+.ticket-back .benefits li::before{left:.1cqw;top:.9cqw;width:.6cqw;height:.6cqw}
+.ticket-back .prices{margin:1.3cqw 0 0;padding:.7cqw 0}
+.ticket-back .price{gap:.3cqw}
+.ticket-back .price strong{font-size:4.8cqw}
+.ticket-back .price span{font-size:2.5cqw}
+.ticket-back .sale-note{font-size:2.35cqw;line-height:1.2;margin:.8cqw 0 1cqw;letter-spacing:.07em}
+.scratch-block{position:relative;width:100%;margin:0 0 1.3cqw;flex-shrink:0}
+.scratch-kicker{font-size:2cqw;letter-spacing:.18em;font-weight:600;line-height:1.3;color:#805e28;margin:0 0 .7cqw}
+.scratch-zone{position:relative;width:100%;height:18.6cqw;border-radius:1.2cqw;overflow:hidden;isolation:isolate;touch-action:none;user-select:none;-webkit-user-select:none;cursor:crosshair;background:linear-gradient(125deg,#f6f0e0,#fffdf5 46%,#e3d8bc);border:1px solid #9b773d;box-shadow:0 1px 2px #5d461c22,inset 0 0 0 1px #fff8;transition:box-shadow .4s}
+.scratch-zone:focus-visible{outline:2px solid #674514;outline-offset:-5px}
+.scratch-zone[data-revealed=true]{cursor:default;box-shadow:0 1px 4px #7b551133,inset 0 0 0 1px #fff8}
+.scratch-message{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3cqw;padding:1.1cqw .7cqw;margin:0;color:#71501e;text-shadow:0 1px #fff9;font-size:3.15cqw;font-weight:700;line-height:1.23;letter-spacing:.015em}
+.scratch-message span{display:block;white-space:nowrap}
+#scratch-cover{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none;opacity:1;transition:opacity .5s ease}
+.scratch-zone[data-revealed=true] #scratch-cover{opacity:0}
+.ticket-back .ticket-conditions{font-size:2.1cqw;line-height:1.2;margin:auto 0 0}
+.ticket-back .ticket-conditions .ticket-age{margin:.4cqw 0;font-size:2.1cqw}
+.ticket-back .ticket-admission{font-size:2.05cqw}
+.no-js-scratch{font-size:12px;line-height:1.5;max-width:320px;text-align:center;color:#d8c08c}
+@media(prefers-reduced-motion:reduce){#scratch-cover,.scratch-zone{transition:none}}

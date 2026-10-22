@@ -1,23 +1,42 @@
-COTILLÓN 26/27 · TOP EVENTOS · ENTRADA CON DOS CARAS · SIN SONIDO
+TOP EVENTOS · COTILLÓN 26/27
+ENTRADA CON RASCA DORADO · VERSIÓN 9
 
-ACTUALIZAR LA WEB EXISTENTE:
-1. Descomprime el ZIP.
-2. En GitHub, abre ENTRADA-COTILL-N-26-27.
+CÓMO ACTUALIZAR LA WEB DE LA ENTRADA
+1. Descomprime este ZIP. No subas el ZIP directamente.
+2. Abre tu repositorio ENTRADA-COTILL-N-26-27 en GitHub.
 3. Pulsa Add file > Upload files.
-4. Sube el nuevo index.html suelto y pulsa Commit changes.
-5. Espera a que termine la publicación y abre:
-   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=doble-cara-6
+4. Sube TODOS los archivos de este paquete SUELTOS, sin la carpeta que los contiene.
+   Incluye index.html, rasca.css, rasca.js, top-eventos.png, sello-cera.webp y papel-negro.webp.
+   También puedes subir este LEEME.txt.
+5. Confirma con Commit changes. Se sustituyen los archivos con el mismo nombre.
+6. Espera a que termine la publicación de GitHub Pages y abre:
+   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=entrada-rasca-9
 
-Solo tienes que actualizar index.html. El logo, el sello de cera y la textura del papel siguen siendo los mismos.
-El archivo de sonido anterior ya no se carga ni se utiliza. Puedes dejarlo en GitHub; no sonará.
+Es una actualización de la web de la entrada, NO de la radio, el reloj o los sorteos.
+No es necesario crear otro repositorio ni borrar archivos antiguos.
+Este paquete está completo e incluye las mismas texturas y el mismo logo.
 
-Para instalar esta versión en un repositorio vacío, sube index.html, top-eventos.png, sello-cera.webp y papel-negro.webp juntos, sin carpetas.
+QUÉ SE HA AÑADIDO
+Al abrir el sobre aparece el mismo frontal. Pulsa DESCUBRIR INFORMACIÓN para girarlo.
+El reverso conserva lugar, dirección, fecha, beneficios, precios y condiciones.
+Se ha redistribuido para mantener la entrada cuadrada y añadir la zona dorada.
+Rasca sobre RASCA AQUÍ con el dedo, el ratón o un lápiz para descubrir:
 
-FUNCIONAMIENTO:
-- Al pulsar el sello, el sobre se abre sin sonido.
-- Sale la entrada cuadrada blanca con detalles dorados y el diseño sencillo inicial.
-- Pulsa DESCUBRIR INFORMACIÓN para girar la entrada y leer todos los datos por detrás.
-- Pulsa VOLVER AL FRONTAL para volver a la primera cara.
-- Puedes cerrar y abrir el sobre de nuevo; siempre empieza mostrando el frontal.
+CUANDO LA COMPRES, RASCA TU ENTRADA Y DESCUBRE SI TIENES PREMIO.
 
-Se conserva la información del cartel y las fechas de precios actualizadas a diciembre de 2026, según tu confirmación.
+Cuando se ha rascado aproximadamente la mitad, se retira el resto del dorado
+para que el mensaje se lea completo. El texto es el mismo para todos.
+La web presenta la promoción de la entrada física; no asigna premios ni hace sorteos.
+
+El rascado se mantiene si vuelves al frontal y giras otra vez, o si cambia
+la orientación/tamaño de pantalla. Al cerrar y volver a abrir el sobre,
+la zona dorada vuelve a estar cubierta para repetir la experiencia.
+
+ACCESIBILIDAD
+También se puede descubrir el mensaje con el teclado (Enter o espacio sobre
+la zona dorada) y con el gesto de activación del lector de pantalla.
+La entrada sigue siendo silenciosa y mantiene las partículas doradas continuas.
+La opción de movimiento reducido mantiene la lectura y el rasca sin animaciones.
+
+Publicación desde una rama: Settings > Pages > Deploy from a branch > main > / (root).
+No se ha publicado ningún cambio automáticamente en tu cuenta de GitHub.
