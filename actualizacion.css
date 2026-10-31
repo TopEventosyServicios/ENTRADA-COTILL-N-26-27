@@ -76,3 +76,13 @@
 .scratch-message .seal-explanation{font-size:3cqw;line-height:1.3;font-weight:400;margin:0;color:#72501e}
 .scratch-message .seal-explanation strong{font-weight:700;color:#79521b;white-space:nowrap}
 .scratch-message .seal-explanation b{font-weight:700;color:#79521b}
+
+/* Lugar, dirección y QR en una sola columna centrada. */
+.front-location{margin:.4cqw 0}
+.front-location .front-place-label{margin-bottom:.35cqw}
+.front-address-qr{width:100%;display:flex;flex-direction:column;gap:.8cqw;align-items:center;margin:.25cqw auto 0;text-align:center}
+.front-address-qr .address-copy{text-align:center;width:100%}
+.front-address-qr .front-address{font-size:2.7cqw;line-height:1.2;margin:0}
+.ticket-front .front-address-qr .ticket-town{font-size:2.8cqw;line-height:1.2;margin:.35cqw 0 0}
+.front-address-qr .location-qr{gap:0;min-width:44px;min-height:44px}
+.front-address-qr .location-qr img{width:14.5cqw;height:14.5cqw;padding:0;background:#fff;border:1px solid #bda16a}
