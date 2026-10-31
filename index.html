@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
-  <meta name="cotillon-version" content="entrada-rasca-9">
+  <meta name="cotillon-version" content="entrada-qr-sello-10">
   <link rel="icon" type="image/png" href="top-eventos.png">
   <link rel="preload" as="image" href="sello-cera.webp">
   <link rel="preload" as="image" href="papel-negro.webp">
@@ -147,7 +147,8 @@
     @media(max-width:359px){main{padding:30px 12px 28px}.eyebrow{font-size:9px}.intro{font-size:12px}.scene{margin-top:78px;margin-bottom:90px}.hint{font-size:12px}.year{font-size:21px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.scene.is-open .flap{transform:rotateX(178deg)}}
   </style>
-  <link rel="stylesheet" href="rasca.css?v=entrada-rasca-9">
+  <link rel="stylesheet" href="rasca.css?v=entrada-qr-sello-10">
+  <link rel="stylesheet" href="actualizacion.css?v=entrada-qr-sello-10">
 </head>
 <body>
   <main id="invitation">
@@ -172,7 +173,7 @@
         <span class="seal" aria-hidden="true"><img class="seal-image" src="sello-cera.webp" width="960" height="960" alt="" decoding="sync" fetchpriority="high" draggable="false"></span>
       </button>
       </div></div>
-      <article class="ticket" id="ticket" aria-label="Entrada al Cotillón 26/27" aria-hidden="true" inert>
+      <article class="ticket" id="ticket" data-face="front" aria-label="Entrada al Cotillón 26/27" aria-hidden="true" inert>
         <div class="ticket-rotor" id="ticket-rotor">
         <section class="ticket-face ticket-front" id="ticket-front" aria-labelledby="ticket-front-title" aria-hidden="false">
           <span class="corner a"></span><span class="corner b"></span><span class="corner c"></span><span class="corner d"></span>
@@ -181,9 +182,18 @@
           <h2 id="ticket-front-title">COTILLÓN</h2>
           <p class="front-year">26 / 27</p>
           <div class="ornament" aria-hidden="true"><span></span></div>
-          <p class="front-place-label">LUGAR</p>
-          <p class="ticket-place">Salón Benalucar</p>
-          <p class="ticket-town">Sanlúcar la Mayor</p>
+          <div class="front-location">
+            <div class="front-location-copy">
+              <p class="front-place-label">LUGAR</p>
+              <p class="ticket-place">Salón Benalúcar</p>
+              <p class="front-address">C/ Blasco de Garay, 65</p>
+              <p class="ticket-town">Sanlúcar la Mayor</p>
+            </div>
+            <a class="location-qr" href="https://maps.google.com/?cid=15043787820222764161" target="_blank" rel="noopener noreferrer" aria-label="Abrir la ubicación del Salón Benalúcar en Google Maps">
+              <img src="qr-ubicacion.png?v=entrada-qr-sello-10" width="354" height="342" alt="Código QR de la ubicación del Salón Benalúcar">
+              <span>VER UBICACIÓN</span>
+            </a>
+          </div>
           <p class="front-age">Entrada para mayores de 18 años</p>
           <button class="discover-button" id="discover-button" type="button" aria-controls="ticket-back">DESCUBRIR INFORMACIÓN</button>
         </section>
@@ -204,7 +214,7 @@
             <li>1 consumición gratuita</li><li>Más de 7 horas de música</li>
             <li>Chupito de bienvenida</li><li>Bolsa de cotillón</li>
             <li>Canapés</li><li>Servicio de guardarropa</li>
-            <li>Sorteos y muchas sorpresas</li>
+            <li class="benefit-surprises">Sorteos y muchas más sorpresas</li>
           </ul>
           <div class="prices" aria-label="Precios de las entradas">
             <p class="price"><strong>30 €</strong><span>Hasta el 23/12/2026</span></p>
@@ -218,6 +228,10 @@
               <canvas id="scratch-cover" aria-hidden="true"></canvas>
             </div>
           </div>
+          <aside class="gold-seal-note" aria-label="El sello dorado del premio especial">
+            <img src="sello-dorado-premiado.jpeg?v=entrada-qr-sello-10" width="904" height="877" alt="Sello dorado TOP EVENTOS PREMIADO">
+            <p>Cuando compres tu entrada, busca el <strong>SELLO DORADO</strong> bajo el rasca. Si lo encuentras, tendrás un <b>premio especial.</b></p>
+          </aside>
           <div class="ticket-conditions">
             <p>Evento recomendado para mayores de 21 años.</p>
             <p class="ticket-age">Prohibida la entrada a menores de 18 años.</p>
@@ -395,6 +409,7 @@
       }
       function resetCard() {
         window.dispatchEvent(new Event('cotillon:reset'));
+        ticket.dataset.face = 'front';
         rotor.classList.remove('is-flipped');
         backShown = false;
         flipping = false;
@@ -417,6 +432,8 @@
         back.setAttribute('inert', '');
         ticket.setAttribute('aria-busy', 'true');
         rotor.classList.toggle('is-flipped', showBack);
+        // Una sola cara visible en cada mitad del giro, también en Safari.
+        later(() => {ticket.dataset.face = showBack ? 'back' : 'front';}, reducedMotion.matches ? 0 : 480);
         later(() => {
           backShown = showBack;
           flipping = false;
@@ -510,6 +527,6 @@
     })();
   </script>
   <p class="sr-only" id="scratch-status" role="status" aria-live="polite"></p>
-  <script src="rasca.js?v=entrada-rasca-9"></script>
+  <script src="rasca.js?v=entrada-qr-sello-10"></script>
 </body>
 </html>

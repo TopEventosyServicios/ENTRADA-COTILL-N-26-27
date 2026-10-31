@@ -1,42 +1,32 @@
-TOP EVENTOS · COTILLÓN 26/27
-ENTRADA CON RASCA DORADO · VERSIÓN 9
+TOP EVENTOS · ENTRADA CON QR Y SELLO DORADO · VERSIÓN 10
 
-CÓMO ACTUALIZAR LA WEB DE LA ENTRADA
-1. Descomprime este ZIP. No subas el ZIP directamente.
-2. Abre tu repositorio ENTRADA-COTILL-N-26-27 en GitHub.
-3. Pulsa Add file > Upload files.
-4. Sube TODOS los archivos de este paquete SUELTOS, sin la carpeta que los contiene.
-   Incluye index.html, rasca.css, rasca.js, top-eventos.png, sello-cera.webp y papel-negro.webp.
-   También puedes subir este LEEME.txt.
-5. Confirma con Commit changes. Se sustituyen los archivos con el mismo nombre.
-6. Espera a que termine la publicación de GitHub Pages y abre:
-   https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=entrada-rasca-9
+CÓMO SUBIRLO
+1. Descomprime el ZIP.
+2. Abre ENTRADA-COTILL-N-26-27 > Add file > Upload files.
+3. Sube TODOS los archivos sueltos del paquete, sin la carpeta ni el ZIP.
+4. Confirma con Commit changes y espera a que termine GitHub Pages.
+5. Abre:
+https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=qr-sello-10
 
-Es una actualización de la web de la entrada, NO de la radio, el reloj o los sorteos.
-No es necesario crear otro repositorio ni borrar archivos antiguos.
-Este paquete está completo e incluye las mismas texturas y el mismo logo.
+ARCHIVOS NECESARIOS
+index.html, rasca.css, rasca.js, actualizacion.css, papel-negro.webp,
+sello-cera.webp, top-eventos.png, qr-ubicacion.png y sello-dorado-premiado.jpeg.
+LEEME.txt es esta guía opcional. No hace falta borrar los archivos anteriores.
 
-QUÉ SE HA AÑADIDO
-Al abrir el sobre aparece el mismo frontal. Pulsa DESCUBRIR INFORMACIÓN para girarlo.
-El reverso conserva lugar, dirección, fecha, beneficios, precios y condiciones.
-Se ha redistribuido para mantener la entrada cuadrada y añadir la zona dorada.
-Rasca sobre RASCA AQUÍ con el dedo, el ratón o un lápiz para descubrir:
+CAMBIOS
+El frontal incluye el QR adjunto junto al lugar, la dirección y el municipio.
+El QR original se conserva sin redibujarlo. También se puede pulsar para abrir
+la misma dirección de Google Maps que contiene el código.
+Los sorteos y muchas más sorpresas quedan alineados con la columna izquierda.
+Debajo del rasca aparece el sello dorado adjunto en una franja negra con el texto:
+Cuando compres tu entrada, busca el SELLO DORADO bajo el rasca.
+Si lo encuentras, tendrás un premio especial.
 
-CUANDO LA COMPRES, RASCA TU ENTRADA Y DESCUBRE SI TIENES PREMIO.
+SE CONSERVA
+El sobre, el sello de apertura, la entrada cuadrada plateada con dorado,
+el giro entre ambas caras, las partículas, todos los precios y condiciones,
+y el rasca interactivo con el mismo mensaje. No se añade sonido.
+El sello ilustra la promoción de la entrada física; la web no asigna premios.
 
-Cuando se ha rascado aproximadamente la mitad, se retira el resto del dorado
-para que el mensaje se lea completo. El texto es el mismo para todos.
-La web presenta la promoción de la entrada física; no asigna premios ni hace sorteos.
-
-El rascado se mantiene si vuelves al frontal y giras otra vez, o si cambia
-la orientación/tamaño de pantalla. Al cerrar y volver a abrir el sobre,
-la zona dorada vuelve a estar cubierta para repetir la experiencia.
-
-ACCESIBILIDAD
-También se puede descubrir el mensaje con el teclado (Enter o espacio sobre
-la zona dorada) y con el gesto de activación del lector de pantalla.
-La entrada sigue siendo silenciosa y mantiene las partículas doradas continuas.
-La opción de movimiento reducido mantiene la lectura y el rasca sin animaciones.
-
-Publicación desde una rama: Settings > Pages > Deploy from a branch > main > / (root).
-No se ha publicado ningún cambio automáticamente en tu cuenta de GitHub.
+Esta actualización solo corresponde a la web ENTRADA-COTILL-N-26-27.
+El paquete no publica automáticamente los cambios en GitHub.

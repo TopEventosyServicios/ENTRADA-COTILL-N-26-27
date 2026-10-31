@@ -1,0 +1,48 @@
+/* Frontal: ubicación y QR original, dentro de la entrada cuadrada. */
+.ticket[data-face=front] .ticket-back,.ticket[data-face=back] .ticket-front{visibility:hidden}
+.ticket-front{padding-top:4.8%;padding-bottom:5%}
+.ticket-front .ticket-logo{width:10cqw;margin-bottom:.8cqw}
+.ticket .ticket-front h2{font-size:10cqw;margin:.8cqw 0 0}
+.front-year{font-size:8.3cqw;margin:.8cqw 0}
+.ticket-front .ornament{margin:.6cqw 0;height:.7cqw}
+.ticket-front .front-age{padding-top:1.3cqw;font-size:2.8cqw}
+.ticket-front .discover-button{margin-top:1.5cqw}
+.front-location{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 26cqw;gap:3cqw;align-items:center;margin:1cqw 0 .8cqw;text-align:left}
+.front-location-copy{min-width:0}
+.front-location .front-place-label{margin:0 0 1.5cqw}
+.ticket-front .front-location .ticket-place{font-size:5.6cqw;line-height:1.13}
+.front-address{font-size:2.7cqw;line-height:1.3;margin:1.7cqw 0 0;color:#725321}
+.ticket-front .front-location .ticket-town{font-size:3.1cqw;line-height:1.25;margin:1.2cqw 0 0}
+.location-qr{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;color:#725321;gap:.7cqw}
+.location-qr img{display:block;width:26cqw;height:26cqw;object-fit:contain;background:#fff;padding:1.3cqw;border:1px solid #bda16a}
+.location-qr span{font-size:1.9cqw;font-weight:600;letter-spacing:.05em;line-height:1.25}
+.location-qr:focus-visible{outline:2px solid #76531e;outline-offset:4px}
+/* Reverso: una única alineación para la lista y un bloque propio para el sello. */
+.ticket-back{padding:4.3cqw 7cqw 4.3cqw}
+.ticket-back>:not(.corner){flex-shrink:0}
+.ticket-back .ticket-heading{gap:2.8cqw;min-height:6.2cqw}
+.ticket-back .ticket-heading .ticket-logo{width:6.2cqw}
+.ticket-back .ticket-heading .ticket-kicker{display:none}
+.ticket-back h2{font-size:5.7cqw;line-height:1.1}
+.ticket-back h2 span{font-size:4.5cqw}
+.ticket-back .ticket-date{font-size:2.4cqw;line-height:1.12;margin:.55cqw 0;padding:.4cqw 0}
+.ticket-back .ticket-place{font-size:3.7cqw;line-height:1.12}
+.back-location{font-size:2.3cqw;line-height:1.2;margin:.4cqw 0 .6cqw}
+.ticket-back .includes-label{font-size:2.1cqw;line-height:1.2;margin:0 0 .6cqw}
+.ticket-back .benefits{font-size:2.6cqw;line-height:1.16;row-gap:.35cqw;column-gap:2.5cqw}
+.ticket-back .benefits li:last-child{grid-column:1/-1;justify-self:stretch;text-align:left}
+.ticket-back .prices{margin:.5cqw 0 0;padding:.35cqw 0}
+.ticket-back .price strong{font-size:4.3cqw}
+.ticket-back .price span{font-size:2.3cqw}
+.ticket-back .sale-note{font-size:2.2cqw;line-height:1.2;margin:.4cqw 0 .5cqw}
+.scratch-block{margin:0 0 .9cqw}
+.scratch-zone{height:14.8cqw}
+.scratch-message{font-size:3cqw;line-height:1.2;gap:.2cqw;padding:.7cqw}
+.gold-seal-note{display:grid;grid-template-columns:16cqw minmax(0,1fr);gap:2cqw;align-items:center;width:100%;padding:.8cqw 1.2cqw;background:#000;border:1px solid #ad8441;margin:0 0 1.1cqw;text-align:left;color:#f4e7c9}
+.gold-seal-note img{display:block;width:16cqw;height:16cqw;object-fit:contain}
+.gold-seal-note p{font-size:2.7cqw;line-height:1.28;margin:0;color:#f4e7c9}
+.gold-seal-note strong{color:#f4cf73;font-weight:700;white-space:nowrap}
+.gold-seal-note b{color:#f4cf73;font-weight:700}
+.ticket-back .ticket-conditions{font-size:2.05cqw;line-height:1.18;margin:auto 0 0}
+.ticket-back .ticket-conditions .ticket-age{font-size:2.05cqw;margin:.3cqw 0}
+.ticket-back .ticket-admission{font-size:2cqw}
