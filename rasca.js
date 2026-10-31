@@ -8,7 +8,7 @@
   const status=document.getElementById('scratch-status');
   if(!zone||!canvas||!message)return;
   const ctx=canvas.getContext('2d',{willReadFrequently:true});
-  const fullMessage='CUANDO LA COMPRES, RASCA TU ENTRADA Y DESCUBRE SI TIENES PREMIO.';
+  const fullMessage='Cuando compres tu entrada, busca el SELLO DORADO bajo el rasca. Si lo encuentras, tendrás un premio especial.';
   let width=0,height=0,ratio=1,strokes=[],pointer=null,revealed=false,lastCheck=0;
   const clamp=n=>Math.max(0,Math.min(1,n));
   function isAvailable(){return back.getAttribute('aria-hidden')==='false'&&!back.hasAttribute('inert')&&!ticket.hasAttribute('inert');}

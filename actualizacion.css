@@ -46,3 +46,33 @@
 .ticket-back .ticket-conditions{font-size:2.05cqw;line-height:1.18;margin:auto 0 0}
 .ticket-back .ticket-conditions .ticket-age{font-size:2.05cqw;margin:.3cqw 0}
 .ticket-back .ticket-admission{font-size:2cqw}
+
+/* Frontal: nombre centrado; dirección y QR reducido en el bloque inferior. */
+.ticket-front .ticket-logo{width:9.5cqw}
+.ticket .ticket-front h2{font-size:9.6cqw;margin-top:.4cqw}
+.front-year{font-size:8cqw;margin:.4cqw 0}
+.ticket-front .ornament{margin:.3cqw 0}
+.front-location{display:flex;flex-direction:column;gap:0;width:100%;margin:.6cqw 0;text-align:center}
+.front-location .front-place-label{margin:0 0 .5cqw;font-size:2.4cqw}
+.ticket-front .front-location .ticket-place{font-size:6.2cqw;line-height:1.12;margin:0}
+.front-address-qr{width:66cqw;display:grid;grid-template-columns:minmax(0,1fr) 19cqw;gap:3cqw;align-items:center;margin:.5cqw auto 0;text-align:left}
+.ticket-front .front-age{padding-top:1.1cqw}
+.front-address-qr .front-address{font-size:2.9cqw;line-height:1.3;margin:0}
+.ticket-front .front-address-qr .ticket-town{font-size:3cqw;line-height:1.3;margin:1.2cqw 0 0}
+.front-address-qr .location-qr{gap:.4cqw}
+.front-address-qr .location-qr img{width:19cqw;height:19cqw;padding:.85cqw}
+.front-address-qr .location-qr span{font-size:1.7cqw;line-height:1.2}
+/* Reverso sin ubicación duplicada; el premio solo se descubre bajo el rasca. */
+.ticket-back .ticket-date{font-size:2.65cqw;margin:.7cqw 0 1.3cqw;padding:.5cqw 0}
+.ticket-back .includes-label{font-size:2.3cqw;margin:0 0 1cqw}
+.ticket-back .benefits{font-size:2.8cqw;line-height:1.18;row-gap:.6cqw}
+.ticket-back .prices{margin:1cqw 0 0;padding:.7cqw 0}
+.ticket-back .price strong{font-size:4.6cqw}
+.ticket-back .sale-note{margin:.8cqw 0 1.2cqw}
+.scratch-block{margin:0 0 1.3cqw}
+.scratch-zone{height:34cqw;background:transparent}
+.scratch-message{display:grid;grid-template-columns:23cqw minmax(0,1fr);gap:2cqw;align-items:center;justify-content:initial;padding:2cqw;margin:0;background:transparent;text-align:left;letter-spacing:0;text-shadow:none}
+.scratch-message .prize-seal{display:block;width:23cqw;height:23cqw;object-fit:contain}
+.scratch-message .seal-explanation{font-size:3cqw;line-height:1.3;font-weight:400;margin:0;color:#72501e}
+.scratch-message .seal-explanation strong{font-weight:700;color:#79521b;white-space:nowrap}
+.scratch-message .seal-explanation b{font-weight:700;color:#79521b}

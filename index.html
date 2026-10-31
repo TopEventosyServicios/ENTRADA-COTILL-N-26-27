@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
-  <meta name="cotillon-version" content="entrada-qr-sello-10">
+  <meta name="cotillon-version" content="entrada-centrada-11">
   <link rel="icon" type="image/png" href="top-eventos.png">
   <link rel="preload" as="image" href="sello-cera.webp">
   <link rel="preload" as="image" href="papel-negro.webp">
@@ -147,8 +147,8 @@
     @media(max-width:359px){main{padding:30px 12px 28px}.eyebrow{font-size:9px}.intro{font-size:12px}.scene{margin-top:78px;margin-bottom:90px}.hint{font-size:12px}.year{font-size:21px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.scene.is-open .flap{transform:rotateX(178deg)}}
   </style>
-  <link rel="stylesheet" href="rasca.css?v=entrada-qr-sello-10">
-  <link rel="stylesheet" href="actualizacion.css?v=entrada-qr-sello-10">
+  <link rel="stylesheet" href="rasca.css?v=entrada-centrada-11">
+  <link rel="stylesheet" href="actualizacion.css?v=entrada-centrada-11">
 </head>
 <body>
   <main id="invitation">
@@ -183,16 +183,18 @@
           <p class="front-year">26 / 27</p>
           <div class="ornament" aria-hidden="true"><span></span></div>
           <div class="front-location">
-            <div class="front-location-copy">
-              <p class="front-place-label">LUGAR</p>
-              <p class="ticket-place">Salón Benalúcar</p>
-              <p class="front-address">C/ Blasco de Garay, 65</p>
-              <p class="ticket-town">Sanlúcar la Mayor</p>
+            <p class="front-place-label">LUGAR</p>
+            <p class="ticket-place">Salón Benalúcar</p>
+            <div class="front-address-qr">
+              <div class="address-copy">
+                <p class="front-address">C/ Blasco de Garay, 65</p>
+                <p class="ticket-town">Sanlúcar la Mayor</p>
+              </div>
+              <a class="location-qr" href="https://maps.google.com/?cid=15043787820222764161" target="_blank" rel="noopener noreferrer" aria-label="Abrir la ubicación del Salón Benalúcar en Google Maps">
+                <img src="qr-ubicacion.png?v=entrada-centrada-11" width="354" height="342" alt="Código QR de la ubicación del Salón Benalúcar">
+                <span>VER UBICACIÓN</span>
+              </a>
             </div>
-            <a class="location-qr" href="https://maps.google.com/?cid=15043787820222764161" target="_blank" rel="noopener noreferrer" aria-label="Abrir la ubicación del Salón Benalúcar en Google Maps">
-              <img src="qr-ubicacion.png?v=entrada-qr-sello-10" width="354" height="342" alt="Código QR de la ubicación del Salón Benalúcar">
-              <span>VER UBICACIÓN</span>
-            </a>
           </div>
           <p class="front-age">Entrada para mayores de 18 años</p>
           <button class="discover-button" id="discover-button" type="button" aria-controls="ticket-back">DESCUBRIR INFORMACIÓN</button>
@@ -207,8 +209,6 @@
             </div>
           </div>
           <p class="ticket-date">31 DICIEMBRE 2026 · 1:00 h</p>
-          <p class="ticket-place">Salón Benalúcar</p>
-          <p class="back-location"><span>C/ Blasco de Garay, 65</span><span aria-hidden="true"> · </span><span>Sanlúcar la Mayor</span></p>
           <p class="includes-label">TU ENTRADA INCLUYE</p>
           <ul class="benefits">
             <li>1 consumición gratuita</li><li>Más de 7 horas de música</li>
@@ -224,14 +224,13 @@
           <div class="scratch-block">
             <p class="scratch-kicker sr-only" id="scratch-help">UN SECRETO BAJO EL ORO</p>
             <div class="scratch-zone" id="scratch-zone" role="button" tabindex="0" aria-label="Rasca aquí con el dedo para descubrir el mensaje. Con teclado, pulsa Enter." aria-controls="scratch-message" aria-describedby="scratch-help" aria-expanded="false" data-revealed="false">
-              <p class="scratch-message" id="scratch-message" aria-hidden="true"><span>CUANDO LA COMPRES,</span> <span>RASCA TU ENTRADA Y DESCUBRE</span> <span>SI TIENES PREMIO.</span></p>
+              <div class="scratch-message" id="scratch-message" aria-hidden="true">
+                <img class="prize-seal" src="sello-premiado-transparente.png?v=entrada-centrada-11" width="1024" height="1024" alt="Sello dorado TOP EVENTOS PREMIADO">
+                <p class="seal-explanation">Cuando compres tu entrada, busca el <strong>SELLO DORADO</strong> bajo el rasca. Si lo encuentras, tendrás un <b>premio especial.</b></p>
+              </div>
               <canvas id="scratch-cover" aria-hidden="true"></canvas>
             </div>
           </div>
-          <aside class="gold-seal-note" aria-label="El sello dorado del premio especial">
-            <img src="sello-dorado-premiado.jpeg?v=entrada-qr-sello-10" width="904" height="877" alt="Sello dorado TOP EVENTOS PREMIADO">
-            <p>Cuando compres tu entrada, busca el <strong>SELLO DORADO</strong> bajo el rasca. Si lo encuentras, tendrás un <b>premio especial.</b></p>
-          </aside>
           <div class="ticket-conditions">
             <p>Evento recomendado para mayores de 21 años.</p>
             <p class="ticket-age">Prohibida la entrada a menores de 18 años.</p>
@@ -527,6 +526,6 @@
     })();
   </script>
   <p class="sr-only" id="scratch-status" role="status" aria-live="polite"></p>
-  <script src="rasca.js?v=entrada-qr-sello-10"></script>
+  <script src="rasca.js?v=entrada-centrada-11"></script>
 </body>
 </html>

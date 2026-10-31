@@ -1,32 +1,33 @@
-TOP EVENTOS · ENTRADA CON QR Y SELLO DORADO · VERSIÓN 10
+TOP EVENTOS · ENTRADA CENTRADA Y SELLO BAJO EL RASCA · VERSIÓN 11
 
-CÓMO SUBIRLO
-1. Descomprime el ZIP.
-2. Abre ENTRADA-COTILL-N-26-27 > Add file > Upload files.
-3. Sube TODOS los archivos sueltos del paquete, sin la carpeta ni el ZIP.
-4. Confirma con Commit changes y espera a que termine GitHub Pages.
-5. Abre:
-https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=qr-sello-10
+ACTUALIZAR GITHUB
+Descomprime este ZIP. Sube todos los archivos SUELTOS a ENTRADA-COTILL-N-26-27,
+sin la carpeta ni el ZIP, sustituyendo los anteriores. Pulsa Commit changes.
+Cuando termine GitHub Pages, abre:
+https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=centrada-11
 
-ARCHIVOS NECESARIOS
+ARCHIVOS
 index.html, rasca.css, rasca.js, actualizacion.css, papel-negro.webp,
-sello-cera.webp, top-eventos.png, qr-ubicacion.png y sello-dorado-premiado.jpeg.
-LEEME.txt es esta guía opcional. No hace falta borrar los archivos anteriores.
+sello-cera.webp, top-eventos.png, qr-ubicacion.png y sello-premiado-transparente.png.
+LEEME.txt es esta guía opcional. Los archivos antiguos sin referencias ya no se usan.
 
 CAMBIOS
-El frontal incluye el QR adjunto junto al lugar, la dirección y el municipio.
-El QR original se conserva sin redibujarlo. También se puede pulsar para abrir
-la misma dirección de Google Maps que contiene el código.
-Los sorteos y muchas más sorpresas quedan alineados con la columna izquierda.
-Debajo del rasca aparece el sello dorado adjunto en una franja negra con el texto:
+LUGAR y Salón Benalúcar aparecen centrados en el frontal.
+La dirección y el municipio quedan debajo, junto a un QR más pequeño.
+El QR conserva el archivo original y también puede pulsarse para abrir su ubicación.
+El reverso ya no repite el salón ni la dirección.
+Al rascar RASCA AQUÍ se descubren el sello dorado sin fondo negro y su explicación:
 Cuando compres tu entrada, busca el SELLO DORADO bajo el rasca.
 Si lo encuentras, tendrás un premio especial.
+Este contenido sustituye el mensaje anterior bajo el rasca.
 
-SE CONSERVA
-El sobre, el sello de apertura, la entrada cuadrada plateada con dorado,
-el giro entre ambas caras, las partículas, todos los precios y condiciones,
-y el rasca interactivo con el mismo mensaje. No se añade sonido.
+Se mantienen los sorteos alineados, los precios, las condiciones, el sobre,
+las dos caras, las partículas doradas y el rasca. La experiencia sigue siendo silenciosa.
 El sello ilustra la promoción de la entrada física; la web no asigna premios.
+Esta entrega no publica automáticamente ningún cambio en GitHub.
 
-Esta actualización solo corresponde a la web ENTRADA-COTILL-N-26-27.
-El paquete no publica automáticamente los cambios en GitHub.
+SELLO SIN FONDO
+Archivo: sello-premiado-transparente.png. Herramienta integrada imagegen.
+Instrucción de edición: quitar únicamente el fondo negro exterior del sello adjunto,
+con transparencia real; conservar el contorno de cera, el oro, el logo TOP EVENTOS
+y el texto PREMIADO, sin añadir un fondo ni otros elementos.
