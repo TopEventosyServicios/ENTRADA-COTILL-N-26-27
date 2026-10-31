@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
-  <meta name="cotillon-version" content="entrada-qr-debajo-12">
+  <meta name="cotillon-version" content="entrada-aviso-venta-13">
   <link rel="icon" type="image/png" href="top-eventos.png">
   <link rel="preload" as="image" href="sello-cera.webp">
   <link rel="preload" as="image" href="papel-negro.webp">
@@ -147,8 +147,8 @@
     @media(max-width:359px){main{padding:30px 12px 28px}.eyebrow{font-size:9px}.intro{font-size:12px}.scene{margin-top:78px;margin-bottom:90px}.hint{font-size:12px}.year{font-size:21px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.scene.is-open .flap{transform:rotateX(178deg)}}
   </style>
-  <link rel="stylesheet" href="rasca.css?v=entrada-qr-debajo-12">
-  <link rel="stylesheet" href="actualizacion.css?v=entrada-qr-debajo-12">
+  <link rel="stylesheet" href="rasca.css?v=entrada-aviso-venta-13">
+  <link rel="stylesheet" href="actualizacion.css?v=entrada-aviso-venta-13">
 </head>
 <body>
   <main id="invitation">
@@ -191,7 +191,8 @@
                 <p class="ticket-town">Sanlúcar la Mayor</p>
               </div>
               <a class="location-qr" href="https://maps.google.com/?cid=15043787820222764161" target="_blank" rel="noopener noreferrer" aria-label="Abrir la ubicación del Salón Benalúcar en Google Maps">
-                <img src="qr-ubicacion-nitido.svg?v=entrada-qr-debajo-12" width="354" height="342" alt="Código QR de la ubicación del Salón Benalúcar">
+                <img src="qr-ubicacion-nitido.svg?v=entrada-aviso-venta-13" width="354" height="342" alt="Código QR de la ubicación del Salón Benalúcar">
+                <span class="location-caption">Haz clic aquí para ir a la ubicación</span>
               </a>
             </div>
           </div>
@@ -224,12 +225,13 @@
             <p class="scratch-kicker sr-only" id="scratch-help">UN SECRETO BAJO EL ORO</p>
             <div class="scratch-zone" id="scratch-zone" role="button" tabindex="0" aria-label="Rasca aquí con el dedo para descubrir el mensaje. Con teclado, pulsa Enter." aria-controls="scratch-message" aria-describedby="scratch-help" aria-expanded="false" data-revealed="false">
               <div class="scratch-message" id="scratch-message" aria-hidden="true">
-                <img class="prize-seal" src="sello-premiado-transparente.png?v=entrada-qr-debajo-12" width="1024" height="1024" alt="Sello dorado TOP EVENTOS PREMIADO">
+                <img class="prize-seal" src="sello-premiado-transparente.png?v=entrada-aviso-venta-13" width="1024" height="1024" alt="Sello dorado TOP EVENTOS PREMIADO">
                 <p class="seal-explanation">Cuando compres tu entrada, busca el <strong>SELLO DORADO</strong> bajo el rasca. Si lo encuentras, tendrás un <b>premio especial.</b></p>
               </div>
               <canvas id="scratch-cover" aria-hidden="true"></canvas>
             </div>
           </div>
+          <p class="sales-info-note">PRÓXIMAMENTE MÁS INFORMACIÓN SOBRE LOS PUNTOS DE VENTA Y LA VENTA DE ENTRADAS.</p>
           <div class="ticket-conditions">
             <p>Evento recomendado para mayores de 21 años.</p>
             <p class="ticket-age">Prohibida la entrada a menores de 18 años.</p>
@@ -525,6 +527,6 @@
     })();
   </script>
   <p class="sr-only" id="scratch-status" role="status" aria-live="polite"></p>
-  <script src="rasca.js?v=entrada-qr-debajo-12"></script>
+  <script src="rasca.js?v=entrada-aviso-venta-13"></script>
 </body>
 </html>

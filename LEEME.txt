@@ -1,35 +1,25 @@
-TOP EVENTOS · ENTRADA CENTRADA Y SELLO BAJO EL RASCA · VERSIÓN 12
+TOP EVENTOS · ENTRADA CON AVISOS · VERSIÓN 13
 
 ACTUALIZAR GITHUB
-Descomprime este ZIP. Sube todos los archivos SUELTOS a ENTRADA-COTILL-N-26-27,
+Descomprime este ZIP y sube todos los archivos SUELTOS a ENTRADA-COTILL-N-26-27,
 sin la carpeta ni el ZIP, sustituyendo los anteriores. Pulsa Commit changes.
 Cuando termine GitHub Pages, abre:
-https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/?v=qr-debajo-12
+https://topeventosyservicios.github.io/ENTRADA-COTILL-N-26-27/index.html?v=aviso-venta-13
 
 ARCHIVOS
 index.html, rasca.css, rasca.js, actualizacion.css, papel-negro.webp,
 sello-cera.webp, top-eventos.png, qr-ubicacion-nitido.svg y sello-premiado-transparente.png.
-LEEME.txt es esta guía opcional. Los archivos antiguos sin referencias ya no se usan.
+LEEME.txt es esta guía opcional. No es necesario borrar archivos anteriores.
 
-CAMBIOS
-LUGAR y Salón Benalúcar aparecen centrados en el frontal.
-La dirección y el municipio van centrados debajo del salón. Debajo de la dirección
-aparece el QR centrado, reducido de 19 a 14,5 unidades de ancho de la entrada.
-El QR se ha codificado en formato vectorial nítido con exactamente la misma
-dirección de Google Maps del código adjunto. También puede pulsarse para abrirla.
-El reverso ya no repite el salón ni la dirección.
-Al rascar RASCA AQUÍ se descubren el sello dorado sin fondo negro y su explicación:
-Cuando compres tu entrada, busca el SELLO DORADO bajo el rasca.
-Si lo encuentras, tendrás un premio especial.
-Este contenido sustituye el mensaje anterior bajo el rasca.
+TEXTOS AÑADIDOS
+Debajo del QR, dentro del mismo enlace:
+Haz clic aquí para ir a la ubicación
 
-Se mantienen los sorteos alineados, los precios, las condiciones, el sobre,
-las dos caras, las partículas doradas y el rasca. La experiencia sigue siendo silenciosa.
-El sello ilustra la promoción de la entrada física; la web no asigna premios.
-Esta entrega no publica automáticamente ningún cambio en GitHub.
+Debajo de la zona de rascar, visible sin necesidad de rascar:
+PRÓXIMAMENTE MÁS INFORMACIÓN SOBRE LOS PUNTOS DE VENTA Y LA VENTA DE ENTRADAS.
 
-SELLO SIN FONDO
-Archivo: sello-premiado-transparente.png. Herramienta integrada imagegen.
-Instrucción de edición: quitar únicamente el fondo negro exterior del sello adjunto,
-con transparencia real; conservar el contorno de cera, el oro, el logo TOP EVENTOS
-y el texto PREMIADO, sin añadir un fondo ni otros elementos.
+Se mantienen el lugar y la dirección centrados, el QR pequeño y su ubicación,
+el sello sin fondo bajo el rasca, la explicación del premio especial,
+los precios, las condiciones, los sorteos alineados, el sobre, el giro y las partículas.
+La experiencia sigue siendo silenciosa. La web no asigna premios.
+Esta entrega no publica automáticamente los cambios en GitHub.
